@@ -18,12 +18,13 @@ namespace SES.Envio_SMS_Email
 
         // Replace recipient@example.com with a "To" address. If your account
         // is still in the sandbox, this address must be verified.
-        static readonly string receiverAddress = "didox_59@yahoo.com.br";
+        static readonly string receiverAddress = "danilo.aparecido.santos@gmail.com";
+        // static readonly string receiverAddress = "didox_59@yahoo.com.br";
 
         // The configuration set to use for this email. If you do not want to use a
         // configuration set, comment out the following property and the
         // ConfigurationSetName = configSet argument below. 
-        static readonly string configSet = "ConfigSet";
+        //static readonly string configSet = "ConfigSet";
 
         // The subject line for the email.
         static readonly string subject = "Amazon SES test (AWS SDK for .NET)";
@@ -49,7 +50,7 @@ namespace SES.Envio_SMS_Email
         {
             // Replace USWest2 with the AWS Region you're using for Amazon SES.
             // Acceptable values are EUWest1, USEast1, and USWest2.
-            using (var client = new AmazonSimpleEmailServiceClient(RegionEndpoint.USWest2))
+            using (var client = new AmazonSimpleEmailServiceClient(awsCredentials, RegionEndpoint.USWest2))
             {
                 var sendRequest = new SendEmailRequest
                 {
@@ -78,7 +79,7 @@ namespace SES.Envio_SMS_Email
                     },
                     // If you are not using a configuration set, comment
                     // or remove the following line 
-                    ConfigurationSetName = configSet
+                    //ConfigurationSetName = configSet
                 };
                 try
                 {
