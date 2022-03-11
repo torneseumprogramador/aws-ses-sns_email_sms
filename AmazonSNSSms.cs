@@ -25,19 +25,6 @@ namespace SES.Envio_SMS_Email
             // var result = await smsClient.PublishAsync(publishRequest);
             // Console.WriteLine($"Status code: {result.HttpStatusCode}");
             // Console.WriteLine("The SMS was sent successfully.");
-            
-
-            // var endpointARN = "arn:aws:sns:sa-east-1:763818760783:teste_sns:87afa3ba-53e6-479d-bc2c-83f2628a4420";
-            // var topicArn = "arn:aws:sns:sa-east-1:763818760783:teste_sns";
-            // // add phone on subscribe
-            // var subscribeRequest = new SubscribeRequest() {  
-            //     TopicArn = topicArn,  
-            //     Protocol = "application",
-            //     Endpoint = endpointARN
-            // };
-            // //subscribeRequest.Endpoint = 
-            // var res = await smsClient.SubscribeAsync(subscribeRequest);  
-            // Console.WriteLine($"Status code SubscribeRequest: {res.HttpStatusCode}");
 
             // envio de SNS para subscribers
             PublishRequest publishRequest = new PublishRequest();
