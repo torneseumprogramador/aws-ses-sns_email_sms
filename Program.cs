@@ -11,7 +11,7 @@ namespace SES.Envio_SMS_Email
         static async Task Main(string[] args)
         {
             //await new AmazonSESMail().Enviar(); 
-            await new AmazonSNSSms().Enviar(); 
+            await new AmazonSNSSms().EnviaParaTopicoManual(); 
         }
     }
 }
