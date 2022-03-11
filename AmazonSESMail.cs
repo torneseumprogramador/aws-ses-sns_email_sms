@@ -11,30 +11,13 @@ namespace SES.Envio_SMS_Email
     public class AmazonSESMail
     {
         public static BasicAWSCredentials awsCredentials = new BasicAWSCredentials(Environment.GetEnvironmentVariable("AWS_KEY"), Environment.GetEnvironmentVariable("AWS_SECRET")); 
-
-        // Replace sender@example.com with your "From" address.
-        // This address must be verified with Amazon SES.
         static readonly string senderAddress = "danilo.aparecido.santos@gmail.com";
-
-        // Replace recipient@example.com with a "To" address. If your account
-        // is still in the sandbox, this address must be verified.
-        // static readonly string receiverAddress = "didox_59@yahoo.com.br";
         static readonly string receiverAddress = "danilo.aparecido.santos@gmail.com";
-
-        // The configuration set to use for this email. If you do not want to use a
-        // configuration set, comment out the following property and the
-        // ConfigurationSetName = configSet argument below. 
-        //static readonly string configSet = "ConfigSet";
-
-        // The subject line for the email.
         static readonly string subject = "Amazon SES test (AWS SDK for .NET)";
-
-        // The email body for recipients with non-HTML email clients.
         static readonly string textBody = "Amazon SES Test (.NET)\r\n" 
                                         + "This email was sent through Amazon SES "
                                         + "using the AWS SDK for .NET.";
         
-        // The HTML body of the email.
         static readonly string htmlBody = @"<html>
 <head></head>
 <body>
@@ -48,8 +31,6 @@ namespace SES.Envio_SMS_Email
 
         public async Task Enviar()
         {
-            // Replace USWest2 with the AWS Region you're using for Amazon SES.
-            // Acceptable values are EUWest1, USEast1, and USWest2.
             using (var client = new AmazonSimpleEmailServiceClient(awsCredentials, RegionEndpoint.SAEast1))
             {
                 var sendRequest = new SendEmailRequest
@@ -77,9 +58,6 @@ namespace SES.Envio_SMS_Email
                             }
                         }
                     },
-                    // If you are not using a configuration set, comment
-                    // or remove the following line 
-                    //ConfigurationSetName = configSet
                 };
                 try
                 {
@@ -94,9 +72,6 @@ namespace SES.Envio_SMS_Email
 
                 }
             }
-
-            // Console.Write("Press any key to continue...");
-            // Console.ReadKey();
         }
     }
 }
